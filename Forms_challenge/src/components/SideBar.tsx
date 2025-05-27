@@ -1,6 +1,8 @@
 import TaskForm from "./TaskForm";
 import "./SideBar.css";
 import { useTaskStore } from "../store/useTaskStore";
+import { FaSearch } from "react-icons/fa";
+
 
 interface SidebarProps {
   onSubmitTask: (task: any) => void;
@@ -12,6 +14,7 @@ export default function Sidebar({ onSubmitTask }: SidebarProps) {
     <aside className="sidebar">
       <h1>Search your task</h1>
       <div className="search-box">
+        <FaSearch className="search-icon" />
         <input
           type="text"
           placeholder="Search tasks..."

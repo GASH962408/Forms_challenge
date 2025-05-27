@@ -55,3 +55,25 @@ label {
   font-size: 1rem;
   color: #3b82f6;
 }
+
+.search-box {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 0.6rem 0.8rem 0.6rem 2.2rem; 
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 0.8rem;
+  transform: translateY(-50%);
+  color: #666;
+  font-size: 1rem;
+}
