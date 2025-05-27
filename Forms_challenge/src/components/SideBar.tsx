@@ -1,11 +1,13 @@
 import TaskForm from "./TaskForm";
-import "./SideBar.css"
+import "./SideBar.css";
+import { useTaskStore } from "../store/useTaskStore";
 
 interface SidebarProps {
   onSubmitTask: (task: any) => void;
 }
 
 export default function Sidebar({ onSubmitTask }: SidebarProps) {
+  const setSearchTerm = useTaskStore((state) => state.setSearchTerm);
   return (
     <aside className="sidebar">
       <h1>Search your task</h1>
@@ -13,9 +15,7 @@ export default function Sidebar({ onSubmitTask }: SidebarProps) {
         <input
           type="text"
           placeholder="Search tasks..."
-          onChange={(e) => {
-            console.log(e.target.value);
-          }}
+          onChange={(e) => setSearchTerm(e.target.value)}
         />
       </div>
       <TaskForm onSubmitTask={onSubmitTask} />

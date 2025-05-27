@@ -9,10 +9,14 @@ interface TaskState {
   toggleTask: (id: string) => void;
   deleteTask: (id: string) => void;
   clearCompleted: () => void;
+  searchTerm: string;
+  setSearchTerm: (term: string) => void;
 }
 
 export const useTaskStore = create<TaskState>((set) => ({
   tasks: loadTasks(),
+  searchTerm: "",
+  setSearchTerm: (term) => set({ searchTerm: term }),
 
   addTask: (task) =>
     set((state) => {
@@ -41,7 +45,7 @@ export const useTaskStore = create<TaskState>((set) => ({
   clearCompleted: () =>
     set((state) => {
       const updated = state.tasks.filter((task) => !task.completed);
-      saveTasks(updated); 
+      saveTasks(updated);
       return { tasks: updated };
     }),
 }));
