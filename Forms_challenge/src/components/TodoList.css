@@ -1,0 +1,83 @@
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  background-color: #2563eb;
+  padding: 1rem;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.task-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-items: center;
+}
+
+.task-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 350px;
+  transition: box-shadow 0.3s;
+}
+
+.task-card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.task-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.task-card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.task-card-details p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+  gap: 0.5rem;
+  color: #444;
+  margin: 0.3rem 0;
+}
+
+.task-options {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #d11a2a;
+  transition: transform 0.2s ease;
+}
+
+.icon-button:hover {
+  transform: scale(1.2);
+  color: #b00020;
+}
