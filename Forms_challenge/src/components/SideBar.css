@@ -2,10 +2,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 1.5rem;
-  gap: 1.3rem;
+  padding: 1.5rem;
   width: 100%;
-  background-color: #ac620e;
+  background-color: #dcdcda;
+}
+
+.sidebar h1{
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
 }
 
 .search-box {
@@ -34,3 +39,4 @@ input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+

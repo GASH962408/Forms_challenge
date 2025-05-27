@@ -24,7 +24,7 @@ export default function TaskForm({
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form  className="form__container" onSubmit={handleSubmit(onSubmit)}>
       <div>
         <label htmlFor="name">Task Name</label>
         <input id="name" {...register("name")} />

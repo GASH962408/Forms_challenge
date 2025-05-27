@@ -7,10 +7,15 @@
   gap: 1rem;
 }
 
-.completed-list{
-    padding-top: 1rem;
+.completed-list {
+  padding-top: 1rem;
+  background-color: white;
 }
 
+.completed-list h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
 .completed-task-row {
   display: flex;
   justify-content: space-between;

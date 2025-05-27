@@ -14,20 +14,20 @@ body {
   height: 100vh;
   display: grid;
   grid-template-rows: 50px auto;
-  background-color: aqua;
+
 }
 
 
 .main-layout {
   display: grid;
   grid-template-columns: 450px 1fr 1fr;
-  background-color: aquamarine;
+
 }
 
 
 
 .navbar {
-  background: linear-gradient(to right, #3b82f6, #2563eb);
+  background-color: black;
   color: white;
   padding: 1rem 2rem;
   font-size: 1.5rem;

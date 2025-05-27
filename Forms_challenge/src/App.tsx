@@ -10,8 +10,7 @@ function App() {
 
   return (
     <div className="app">
-      <header className="navbar">RAVN TODO TASK</header>
-
+      <header className="navbar">Ravn Challenge</header>
       <div className="main-layout">
         <Sidebar onSubmitTask={addTask} />
         <TodoList />
