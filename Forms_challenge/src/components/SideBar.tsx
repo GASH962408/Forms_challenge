@@ -21,6 +21,7 @@ export default function Sidebar({ onSubmitTask }: SidebarProps) {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </div>
+      <h1>Add your task</h1>
       <TaskForm onSubmitTask={onSubmitTask} />
     </aside>
   );
