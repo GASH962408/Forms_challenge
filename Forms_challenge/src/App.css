@@ -14,26 +14,19 @@ body {
   height: 100vh;
   display: grid;
   grid-template-rows: 50px auto;
-
 }
-
 
 .main-layout {
   display: grid;
   grid-template-columns: 450px 1fr 1fr;
-
 }
 
-
-
 .navbar {
-  background-color: black;
+  background-color: #000000;
   color: white;
   padding: 1rem 2rem;
   font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
   letter-spacing: 1px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
-
