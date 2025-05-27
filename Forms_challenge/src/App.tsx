@@ -7,16 +7,22 @@ import Sidebar from "./components/SideBar";
 function App() {
   const addTask = useTaskStore((state) => state.addTask);
 
-
   return (
     <div className="app">
       <header className="navbar">Ravn Challenge</header>
       <div className="main-layout">
-        <Sidebar onSubmitTask={addTask} />
-        <TodoList />
-        <CompletedTaskList />
+        <aside className="sidebar">
+          <Sidebar onSubmitTask={addTask} />
+        </aside>
+        <main className="todo">
+          <TodoList />
+        </main>
+        <section className="completed">
+          <CompletedTaskList />
+        </section>
       </div>
     </div>
   );
 }
+
 export default App;

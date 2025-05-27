@@ -6,7 +6,7 @@
 
 body {
   font-family: sans-serif;
-  background-color: #f5f5f5;
+  background-color: white;
   color: #333;
 }
 
@@ -16,15 +16,8 @@ body {
   grid-template-rows: 50px auto;
 }
 
-.main-layout {
-  display: grid;
-  grid-template-columns: 450px 1fr 1fr;
-  height: 100%;
-  background-color: white;
-}
-
 .navbar {
-  background-color: #000000;
+  background-color: #000;
   color: white;
   padding: 1rem 2rem;
   font-size: 1.5rem;
@@ -33,10 +26,61 @@ body {
   letter-spacing: 1px;
 }
 
+.main-layout {
+  display: grid;
+  grid-template-columns: 450px 1fr 1fr;
+  grid-template-areas: "sidebar todo completed";
+  height: 100%;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  overflow-y: auto;
+}
+
+.todo {
+  grid-area: todo;
+  overflow-y: auto;
+}
+
+.completed {
+  grid-area: completed;
+  overflow-y: auto;
+}
+
+@media (max-width: 1024px) {
+  .main-layout {
+    grid-template-columns: 450px 1fr;
+    grid-template-areas:
+      "sidebar todo"
+      "sidebar completed";
+  }
+
+  .todo,
+  .completed {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .main-layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "todo"
+      "completed"
+      "sidebar";
+  }
+
+  .sidebar,
+  .todo,
+  .completed {
+    padding: 1rem;
+  }
+}
+
 .no-tasks {
   font-size: 1rem;
   color: #666;
   text-align: center;
   padding: 1rem;
-  grid-column: 1 / -1;
 }
