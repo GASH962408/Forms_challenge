@@ -30,31 +30,26 @@ function App() {
         </aside>
 
         <section className="todo-list">
-          <h2>To Do</h2>
+          <h2 className="section-title">To Do</h2>
           <ul className="task-list">
             {activeTasks.map((task, index) => (
               <li key={index} className="task-card">
                 <div className="task-card-header">
-                  <input
-                    type="checkbox"
-                    checked={false}
-                    onChange={() => toggleTask(index)}
-                  />
-                  <strong>{task.name}</strong>
+                  <span className="task-title">{task.name}</span>
                 </div>
                 <div className="task-card-details">
                   <p>
-                    <FaFlag /> Priority: {task.priority}
+                    <span>Priority:</span> <span>{task.priority}</span>
                   </p>
                   <p>
-                    <FaUser /> Assignee: {task.assignee}
+                    <span>Assignee:</span> <span>{task.assignee}</span>
                   </p>
                   <p>
-                    <FaBullseye /> Story Points: {task.storyPoints}
+                    <span>Story Points:</span> <span>{task.storyPoints}</span>
                   </p>
                   <p>
-                    <FaCalendarAlt /> Due:{" "}
-                    {new Date(task.dueDate).toLocaleDateString()}
+                    <span>Due:</span>{" "}
+                    <span>{new Date(task.dueDate).toLocaleDateString()}</span>
                   </p>
                 </div>
               </li>
