@@ -1,8 +1,8 @@
 import "./App.css";
 import TaskForm from "./components/TaskForm";
-import type { Task } from "./types/task";
 import { useTaskStore } from "./store/useTaskStore";
-import { FaUser, FaFlag, FaCalendarAlt, FaBullseye } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
+import CompletedTaskList from "./components/CompletedTaskList";
 
 function App() {
   const addTask = useTaskStore((state) => state.addTask);
@@ -10,6 +10,7 @@ function App() {
   const toggleTask = useTaskStore((state) => state.toggleTask);
   const activeTasks = tasks.filter((task) => !task.completed);
   const completedTasks = tasks.filter((task) => task.completed);
+  const deleteTask = useTaskStore((state) => state.deleteTask);
 
   return (
     <div className="app">
@@ -18,28 +19,31 @@ function App() {
       <div className="main-layout">
         <aside className="sidebar">
           <h1>Search your task</h1>
-          <div className="search-box">
-            <input
-              type="text"
-              placeholder="Search tasks..."
-              onChange={(e) => {
-                console.log(e.target.value);
-              }}
-            />
-          </div>
+          <div className="search-box"></div>
           <TaskForm onSubmitTask={addTask} />
         </aside>
 
         <section className="todo-list">
           <h2 className="section-title">To Do</h2>
           <ul className="task-list">
-            {activeTasks.map((task, index) => (
-              <li key={index} className="task-card">
+            {activeTasks.map((task) => (
+              <li key={task.id} className="task-card">
                 <div className="task-card-header">
                   <span className="task-title">{task.name}</span>
                   <div className="task-options">
-                    <input type="checkbox" />
-                    <button>erase</button>
+                    <input
+                      type="checkbox"
+                      checked={task.completed}
+                      onChange={() => toggleTask(task.id)}
+                      title="Mark as completed"
+                    />
+                    <button
+                      className="icon-button"
+                      onClick={() => deleteTask(task.id)}
+                      title="Delete task"
+                    >
+                      <FaTrash />
+                    </button>
                   </div>
                 </div>
                 <div className="task-card-details">
@@ -62,16 +66,7 @@ function App() {
           </ul>
         </section>
 
-        <section className="completed-list">
-          <h2>Completed</h2>
-          <ul>
-            {completedTasks.map((task, index) => (
-              <li key={`done-${index}`}>
-                ✅ <strong>{task.name}</strong> - {task.priority}
-              </li>
-            ))}
-          </ul>
-        </section>
+        <CompletedTaskList />
       </div>
     </div>
   );

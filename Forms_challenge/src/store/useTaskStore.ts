@@ -1,11 +1,13 @@
 import { create } from "zustand";
 import type { Task } from "../types/task";
 import { saveTasks, loadTasks } from "../utils/localStorage";
+import { v4 as uuidv4 } from "uuid";
 
 interface TaskState {
   tasks: Task[];
   addTask: (task: Task) => void;
-  toggleTask: (index: number) => void;
+  toggleTask: (id: string) => void;
+  deleteTask: (id: string) => void;
 }
 
 export const useTaskStore = create<TaskState>((set) => ({
@@ -13,19 +15,25 @@ export const useTaskStore = create<TaskState>((set) => ({
 
   addTask: (task) =>
     set((state) => {
-      const taskWithCompleted = { ...task, completed: false };
-      const updated = [...state.tasks, taskWithCompleted];
+      const taskWithId = { ...task, id: uuidv4(), completed: false };
+      const updated = [...state.tasks, taskWithId];
       saveTasks(updated);
       return { tasks: updated };
     }),
 
+  toggleTask: (id) =>
+    set((state) => {
+      const updated = state.tasks.map((task) =>
+        task.id === id ? { ...task, completed: !task.completed } : task
+      );
+      saveTasks(updated);
+      return { tasks: updated };
+    }),
 
-toggleTask: (index: number) =>
-  set((state) => {
-    const updated = [...state.tasks];
-    updated[index].completed = !updated[index].completed;
-    saveTasks(updated);
-    return { tasks: updated };
-  }),
+  deleteTask: (id: string) =>
+    set((state) => {
+      const updated = state.tasks.filter((task) => task.id !== id);
+      saveTasks(updated);
+      return { tasks: updated };
+    }),
 }));
-
