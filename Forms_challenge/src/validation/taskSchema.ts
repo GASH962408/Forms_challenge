@@ -9,3 +9,5 @@ export const taskSchema = z.object({
     message: 'Due date must be in the future',
   }),
 });
+
+export type Task = z.infer<typeof taskSchema>;
