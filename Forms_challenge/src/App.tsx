@@ -17,6 +17,7 @@ function App() {
 
       <div className="main-layout">
         <aside className="sidebar">
+          <h1>Search your task</h1>
           <div className="search-box">
             <input
               type="text"
@@ -36,6 +37,10 @@ function App() {
               <li key={index} className="task-card">
                 <div className="task-card-header">
                   <span className="task-title">{task.name}</span>
+                  <div className="task-options">
+                    <input type="checkbox" />
+                    <button>erase</button>
+                  </div>
                 </div>
                 <div className="task-card-details">
                   <p>
