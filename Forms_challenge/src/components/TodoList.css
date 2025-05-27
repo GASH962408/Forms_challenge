@@ -4,6 +4,8 @@
   background-color: #ffffff;
   padding: 1rem;
   border-right: 2px solid #C4C4C4;
+  height: 90vh;        
+  overflow-y: auto;    
 }
 
 .todo-list h2 {

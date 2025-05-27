@@ -8,6 +8,7 @@ interface TaskState {
   addTask: (task: Task) => void;
   toggleTask: (id: string) => void;
   deleteTask: (id: string) => void;
+  clearCompleted: () => void;
 }
 
 export const useTaskStore = create<TaskState>((set) => ({
@@ -34,6 +35,13 @@ export const useTaskStore = create<TaskState>((set) => ({
     set((state) => {
       const updated = state.tasks.filter((task) => task.id !== id);
       saveTasks(updated);
+      return { tasks: updated };
+    }),
+
+  clearCompleted: () =>
+    set((state) => {
+      const updated = state.tasks.filter((task) => !task.completed);
+      saveTasks(updated); 
       return { tasks: updated };
     }),
 }));
