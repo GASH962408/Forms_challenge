@@ -1,6 +1,7 @@
 import { useTaskStore } from "../store/useTaskStore";
 import { FaTrash } from "react-icons/fa";
-import "./TodoList.css"
+import "./TodoList.css";
+import { FaFlag, FaUser, FaListOl, FaRegCalendarAlt } from "react-icons/fa";
 
 export default function TodoList() {
   const tasks = useTaskStore((state) => state.tasks);
@@ -34,18 +35,42 @@ export default function TodoList() {
             </div>
 
             <div className="task-card-details">
-              <p>
-                <span>Priority:</span> <span>{task.priority}</span>
+              <p className="detail-row">
+                <div className="detail-left">
+                  <FaFlag className="icon-detail" />
+                  <span className="detail-label">Priority</span>
+                </div>
+                <span
+                  className={`priority-value ${task.priority.toLowerCase()}`}
+                >
+                  {task.priority}
+                </span>
               </p>
-              <p>
-                <span>Assignee:</span> <span>{task.assignee}</span>
+
+              <p className="detail-row">
+                <div className="detail-left">
+                  <FaListOl className="icon-detail" />
+                  <span className="detail-label">Points</span>
+                </div>
+                <span className="detail-value">{task.storyPoints}</span>
               </p>
-              <p>
-                <span>Story Points:</span> <span>{task.storyPoints}</span>
+
+              <p className="detail-row">
+                <div className="detail-left">
+                  <FaUser className="icon-detail" />
+                  <span className="detail-label">Assignee</span>
+                </div>
+                <span className="detail-value">{task.assignee}</span>
               </p>
-              <p>
-                <span>Due:</span>{" "}
-                <span>{new Date(task.dueDate).toLocaleDateString()}</span>
+
+              <p className="detail-row">
+                <div className="detail-left">
+                  <FaRegCalendarAlt className="icon-detail" />
+                  <span className="detail-label">Due</span>
+                </div>
+                <span className="detail-value">
+                  {new Date(task.dueDate).toLocaleDateString()}
+                </span>
               </p>
             </div>
           </li>
