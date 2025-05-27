@@ -4,4 +4,5 @@ export interface Task {
   storyPoints: number;
   assignee: string;
   dueDate: Date;
+  completed:boolean;
 }
