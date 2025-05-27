@@ -3,6 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { taskSchema } from "../validation/taskSchema";
 import type { Task } from "../types/task";
 import { useState } from "react";
+import "./TaskForm.css"
 
 export default function TaskForm({
   onSubmitTask,

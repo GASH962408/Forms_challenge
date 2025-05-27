@@ -9,3 +9,114 @@ body {
   background-color: #f5f5f5;
   color: #333;
 }
+
+.app {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 50px auto;
+  background-color: aqua;
+}
+
+
+.main-layout {
+  display: grid;
+  grid-template-columns: 450px 1fr 1fr;
+  background-color: aquamarine;
+}
+
+.sidebar{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1.5rem;
+  gap: 1.3rem;
+  width: 100%;
+  background-color: #ac620e;
+}
+
+
+.navbar {
+  background: linear-gradient(to right, #3b82f6, #2563eb);
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-box {
+  margin-bottom: 2rem;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.search-box input:focus {
+  border-color: #3b82f6;
+  background-color: #fff;
+}
+
+
+.todo-list{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #2563eb;
+  padding: 1rem;
+}
+
+
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.task-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.2s ease;
+  width: 50%;
+}
+
+.task-card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+}
+
+.task-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.task-card-details {
+  font-size: 0.95rem;
+  color: #444;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.task-card-details p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.2rem 0;
+}
