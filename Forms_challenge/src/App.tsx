@@ -1,12 +1,27 @@
-import './App.css'
+import "./App.css";
+import TaskForm from "./components/TaskForm";
+import type { Task } from "./types/task";
+import { useTaskStore } from "./store/useTaskStore";
 
 function App() {
-
+  const addTask = useTaskStore((state) => state.addTask);
+  const tasks = useTaskStore((state) => state.tasks);
   return (
-    <>
-      <h1>Hello world</h1>
-    </>
-  )
-}
+    <main>
+      <h1>Create Task</h1>
+      <TaskForm onSubmitTask={addTask} />
 
-export default App
+      <section>
+        <h2>Tasks</h2>
+        <ul>
+          {tasks.map((task, index) => (
+            <li key={index}>
+              <strong>{task.name}</strong> - {task.priority} - {task.assignee}
+            </li>
+          ))}
+        </ul>
+      </section>
+    </main>
+  );
+}
+export default App;
