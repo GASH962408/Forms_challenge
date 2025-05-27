@@ -127,14 +127,14 @@
 
 .detail-value {
   font-weight: 500;
-  color: #222; /* negro */
+  color: #222; 
 }
 
 .priority-value {
   font-weight: bold;
 }
 
-/* Colores solo para prioridad */
+
 .priority-value.urgent {
   color: #dc2626;
 }

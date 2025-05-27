@@ -37,7 +37,7 @@ export default function TaskForm({
       <FaTasks className="label-icon" /> Task Name
     </label>
     <input id="name" {...register("name")} />
-    {errors.name && <p>{errors.name.message}</p>}
+    {errors.name && <p className="form-error">{errors.name.message}</p>}
   </div>
 
   <div>
@@ -51,7 +51,7 @@ export default function TaskForm({
       <option value="Normal">Normal</option>
       <option value="Low">Low</option>
     </select>
-    {errors.priority && <p>{errors.priority.message}</p>}
+    {errors.priority && <p className="form-error">{errors.priority.message}</p>}
   </div>
 
   <div>
@@ -63,7 +63,7 @@ export default function TaskForm({
       type="number"
       {...register("storyPoints", { valueAsNumber: true })}
     />
-    {errors.storyPoints && <p>{errors.storyPoints.message}</p>}
+    {errors.storyPoints && <p className="form-error">{errors.storyPoints.message}</p>}
   </div>
 
   <div>
@@ -71,7 +71,7 @@ export default function TaskForm({
       <FaUser className="label-icon" /> Assignee
     </label>
     <input id="assignee" {...register("assignee")} />
-    {errors.assignee && <p>{errors.assignee.message}</p>}
+    {errors.assignee && <p className="form-error">{errors.assignee.message}</p>}
   </div>
 
   <div>
@@ -79,7 +79,7 @@ export default function TaskForm({
       <FaRegCalendarAlt className="label-icon" /> Due Date
     </label>
     <input id="dueDate" type="date" {...register("dueDate")} />
-    {errors.dueDate && <p>{errors.dueDate.message}</p>}
+    {errors.dueDate && <p className="form-error">{errors.dueDate.message}</p>}
   </div>
 
   <button type="submit">Add Task</button>
